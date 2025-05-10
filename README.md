@@ -15,7 +15,7 @@ The paper outlines a multi-stage training process:
 
 The author acknowledges challenges in replicating complex human feelings and subjective experiences but suggests that even basic emotional modeling could improve AI alignment with ethical principles. The proposed approach aims to transition AI from rule-following to morally guided behavior, fostering AI systems that act "conscientiously" rather than merely complying with external directives. Ultimately, this framework seeks to establish AI ethics grounded in human-like moral reasoning, ensuring robustness against adversarial manipulations and adaptability to novel ethical dilemmas.
 
-## 1.	1.	Terminology
+## 1.	Terminology
 Let's first agree on what this or that term will mean in this document. The author does not claim universality and correctness of definitions. The term and its description are just what they mean in this document.
 
 -	Emotion is a mental process that reflects a subjective evaluative attitude towards existing or possible situations and the objective world. There are many types of emotions. Emotions are associated with chemical processes in the body. Emotions are not associated with reason. Emotions are spontaneous and short-term.
@@ -32,7 +32,7 @@ In the current state of LLM at the RLHF stage they learn to answer according to 
 
 If we want the model to act according to some of its own moral rules, we need to instill this morality, teach it, so that even in cases that are not provided for or cannot be provided for by the LLM rules, it acts “according to conscience”. If we want the LLM to have its own morality and ethics, we need to start with emotions. Perhaps emotions are impossible without the subjective experience of the model, but such subjective experience can be imitated at the stage of training the model.
 
-## 3.	 Connection of emotions with texts and knowledge 
+## 3.	 Connection of emotions with texts and knowledge
 Since we are considering LLM, we need to somehow connect emotions with texts and knowledge obtained from them. First, let's assume that emotions are independent of knowledge and are some kind of reaction to this knowledge. Therefore, the first stage of LLM training (pre-training) can be done in the same way as now. But before the second stage, before teaching the model to understand instructions, we need to form the model's attitude to the texts, the reaction to them.
 
 A human has, according to different estimates, 4+ emotions - happiness, sadness, fear, anger, contempt, disgust, pleasure, surprise. The question of which human emotions to leave and which new ones to add is beyond the scope of this document. No matter how many and what emotions there are, they will all be added in the same way. Let's say we stop at the 8 previously listed emotions. We will need an additional neural network that accepts text embeddings at the input and has 8 outputs, each of which is assigned to a certain emotion. The numerical value at this output means the strength of the emotion. The acceptable range of values should be discussed. Most likely, for some emotions the range will be from 0 to 1, and for others from -1 to 1. At first glance, there is no point in values greater than 1 and less than -1.
@@ -41,7 +41,7 @@ In order to train such a model, an error/lost/cost criterion is needed. This can
 
 Emotions are not associated with individual tokens, they are associated at least with thoughts, with sentences, and some can be associated with even larger fragments of texts. This requires either moving from tokens to thoughts as suggested in the articles https://github.com/loftyara/Encode_thought and https://github.com/loftyara/Speranza or finding emotions to arrays of token embeddings of a sufficiently large size.
 
-## 4.	Transition to feelings 
+## 4.	Transition to feelings
 If emotions are quite simple, unambiguous, short-term and can be objectively determined by people's reactions, then the situation with feelings is much more complicated. Feelings are formed over a long period of time, sometimes throughout life. Feelings are always conscious. Even emotions may differ among different people, and feelings will differ even more. The author cannot imagine how to teach feelings to a model that is not aware of itself and without subjective experience. Perhaps the equivalent of feelings will arise in AI on its own. The author suggests limiting the idea to emotions only at the stage of testing, expanding their list if necessary from basic to more complex, but not as complex and long-lasting as feelings.
 
 ## 5.	Subjective experience
